@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleWare } from 'redux';
+import App from './components/app';
+import reducers from './reducers';
+
 require('./index.css');
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        Hello World!
-      </div>
-    )
-  }
-}
-
 ReactDOM.render(
-  <App />,
+  <Provider store={createStore(reducers)}>
+    <App />
+  </Provider>,
   document.getElementById('app')
 );
